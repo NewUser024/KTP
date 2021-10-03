@@ -1,0 +1,34 @@
+import PySimpleGUI as sg
+import webbrowser
+sg.theme('DarkBlue')
+
+layout = [  [sg.Button('Математика'),sg.Button('Фізика')],
+            [sg.Button('Укр.Мова')]  ]
+layout1 = [  [sg.Button('ЗНО з математики')]  ]
+layout2 = [  [sg.Button('ЗНО з фізики')]  ]
+layout3 = [  [sg.Button('ЗНО з укр.мови')]  ]
+
+window = sg.Window('Навчальна програма', layout)
+window1 = sg.Window('Математика', layout1)
+window2 = sg.Window('Фізика', layout2)
+window3 = sg.Window('Укр.Мова', layout3)
+
+while True:
+    event, values = window.read()
+    
+    if event == 'Математика':
+        event, values = window1.read()
+        if event == 'ЗНО з математики':
+            webbrowser.open('https://zno.osvita.ua/mathematics/')
+    if event == 'Фізика':
+        event, values = window2.read()
+        if event == 'ЗНО з фізики':
+            webbrowser.open('https://zno.osvita.ua/physics/')
+    if event == 'Укр.Мова':
+        event, values = window3.read()
+        if event == 'ЗНО з укр.мови':
+            webbrowser.open('https://zno.osvita.ua/ukrmova/')
+    if event == sg.WIN_CLOSED:
+        break
+
+window.close()
