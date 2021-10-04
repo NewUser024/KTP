@@ -1,6 +1,6 @@
 import PySimpleGUI as sg
 import webbrowser
-sg.theme('DarkBlue')
+sg.theme('DarkTeal2')
 
 layout = [  [sg.Button('Математика'),sg.Button('Фізика')],
             [sg.Button('Укр.Мова')]  ]
