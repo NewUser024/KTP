@@ -5,9 +5,9 @@ sg.theme('DarkTeal2')
 
 layout = [  [sg.Button('Математика'),sg.Button('Фізика')],
             [sg.Button('Укр.Мова')]  ]
-layout1 = [  [sg.Button('ЗНО з математики')]  ]
-layout2 = [  [sg.Button('ЗНО з фізики')]  ]
-layout3 = [  [sg.Button('ЗНО з укр.мови')]  ]
+layout1 = [  [sg.Button('ЗНО з математики'), sg.Button('Тести')]  ]
+layout2 = [  [sg.Button('ЗНО з фізики'), sg.Button('Тести')]  ]
+layout3 = [  [sg.Button('ЗНО з укр.мови'), sg.Button('Тести')]  ]
 
 window = sg.Window('Навчальна програма', layout, size(400, 300))
 window1 = sg.Window('Математика', layout1, size(290, 100))
