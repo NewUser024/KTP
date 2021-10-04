@@ -8,10 +8,10 @@ layout1 = [  [sg.Button('ЗНО з математики')]  ]
 layout2 = [  [sg.Button('ЗНО з фізики')]  ]
 layout3 = [  [sg.Button('ЗНО з укр.мови')]  ]
 
-window = sg.Window('Навчальна програма', layout, size())
-window1 = sg.Window('Математика', layout1)
-window2 = sg.Window('Фізика', layout2)
-window3 = sg.Window('Укр.Мова', layout3)
+window = sg.Window('Навчальна програма', layout, size(400, 300))
+window1 = sg.Window('Математика', layout1, size(290, 100))
+window2 = sg.Window('Фізика', layout2, size(290, 100))
+window3 = sg.Window('Укр.Мова', layout3, size(290, 100))
 
 while True:
     event, values = window.read()
