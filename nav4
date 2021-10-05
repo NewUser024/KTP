@@ -9,10 +9,14 @@ layout1 = [  [sg.Button('ЗНО з математики'), sg.Button('Тести
 layout2 = [  [sg.Button('ЗНО з фізики'), sg.Button('Тести')]  ]
 layout3 = [  [sg.Button('ЗНО з укр.мови'), sg.Button('Тести')]  ]
 
-window = sg.Window('Навчальна програма', layout, size(400, 300))
-window1 = sg.Window('Математика', layout1, size(290, 100))
-window2 = sg.Window('Фізика', layout2, size(290, 100))
-window3 = sg.Window('Укр.Мова', layout3, size(290, 100))
+window = sg.Window('Навчальна програма', layout, size=(400, 300), font=string s
+Sans-serif )
+window1 = sg.Window('Математика', layout1, size=(290, 100),font=string s
+Sans-serif  )
+window2 = sg.Window('Фізика', layout2, size=(290, 100), font=string s
+Sans-serif )
+window3 = sg.Window('Укр.Мова', layout3, size=(290, 100), font=string s
+Sans-serif )
 
 while True:
     event, values = window.read()
