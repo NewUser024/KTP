@@ -11,11 +11,11 @@ layout3 = [  [sg.Button('ЗНО з укр.мови'), sg.Button('Тести')]  
 
 window = sg.Window('Навчальна програма', layout, size=(400, 300), font=string s
 Sans-serif )
-window1 = sg.Window('Математика', layout1, size=(290, 100),font=string s
+window1 = sg.Window('Математика', layout1, size=(290, 100),font=string
 Sans-serif  )
-window2 = sg.Window('Фізика', layout2, size=(290, 100), font=string s
+window2 = sg.Window('Фізика', layout2, size=(290, 100), font=string
 Sans-serif )
-window3 = sg.Window('Укр.Мова', layout3, size=(290, 100), font=string s
+window3 = sg.Window('Укр.Мова', layout3, size=(290, 100), font=string
 Sans-serif )
 
 while True:
