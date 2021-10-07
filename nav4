@@ -9,8 +9,8 @@ layout1 = [  [sg.Button('ЗНО з математики'), sg.Button('Тести
 layout2 = [  [sg.Button('ЗНО з фізики'), sg.Button('Тести')]  ]
 layout3 = [  [sg.Button('ЗНО з укр.мови'), sg.Button('Тести')]  ]
 
-window = sg.Window('Навчальна програма', layout, size=(400, 300), font=string s
-Sans-serif )
+window = sg.Window('Навчальна програма', layout, size=(400, 300), font=string 
+Monospace )
 window1 = sg.Window('Математика', layout1, size=(290, 100),font=string
 Sans-serif  )
 window2 = sg.Window('Фізика', layout2, size=(290, 100), font=string
