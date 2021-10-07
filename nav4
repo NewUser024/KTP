@@ -25,14 +25,17 @@ while True:
         event, values = window1.read()
         if event == 'ЗНО з математики':
             webbrowser.open('https://zno.osvita.ua/mathematics/')
+        if event == 'Тести':
     if event == 'Фізика':
         event, values = window2.read()
         if event == 'ЗНО з фізики':
             webbrowser.open('https://zno.osvita.ua/physics/')
+        if event == 'Тести':
     if event == 'Укр.Мова':
         event, values = window3.read()
         if event == 'ЗНО з укр.мови':
             webbrowser.open('https://zno.osvita.ua/ukrmova/')
+        if event == 'Тести':
     if event == sg.WIN_CLOSED:
         break
 
