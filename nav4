@@ -3,20 +3,25 @@ import webbrowser
 
 sg.theme('DarkTeal2')
 
-layout = [  [sg.Button('Математика'),sg.Button('Фізика')],
-            [sg.Button('Укр.Мова')]  ]
-layout1 = [  [sg.Button('ЗНО з математики'), sg.Button('Тести')]  ]
-layout2 = [  [sg.Button('ЗНО з фізики'), sg.Button('Тести')]  ]
-layout3 = [  [sg.Button('ЗНО з укр.мови'), sg.Button('Тести')]  ]
+col = [  [sg.Button('Математика'),sg.Button('Фізика')],
+                [sg.Button('Укр.Мова')]  ]
+col_math = [  [sg.Button('ЗНО з математики')],
+                [sg.Button('Тести')]  ]
+col_fiz = [  [sg.Button('ЗНО з фізики')],
+                [sg.Button('Тести')]  ]
+col_mova = [  [sg.Button('ЗНО з укр.мови')],
+                [sg.Button('Тести')]  ]
 
-window = sg.Window('Навчальна програма', layout, size=(400, 300), font=string 
-Monospace )
-window1 = sg.Window('Математика', layout1, size=(290, 100), font=string
-Sans-serif  )
-window2 = sg.Window('Фізика', layout2, size=(290, 100), font=string
-Sans-serif )
-window3 = sg.Window('Укр.Мова', layout3, size=(290, 100), font=string
-Sans-serif )
+
+layout = [  [sg.Column(col, justification='center' )]  ]
+layout1 = [  [sg.Column(col_math, justification='center')]  ]
+layout2 = [  [sg.Column(col_fiz, justification='center')]  ]
+layout3 = [  [sg.Column(col_mova, justification='center')]  ]
+
+window = sg.Window('Навчальна програма', layout, size=(250, 100))
+window1 = sg.Window('Математика', layout1, size=(250, 100))
+window2 = sg.Window('Фізика', layout2, size=(250, 100))
+window3 = sg.Window('Укр.Мова', layout3, size=(250, 100))
 
 while True:
     event, values = window.read()
@@ -26,16 +31,19 @@ while True:
         if event == 'ЗНО з математики':
             webbrowser.open('https://zno.osvita.ua/mathematics/')
         if event == 'Тести':
+            print("")
     if event == 'Фізика':
         event, values = window2.read()
         if event == 'ЗНО з фізики':
             webbrowser.open('https://zno.osvita.ua/physics/')
         if event == 'Тести':
+            print("")
     if event == 'Укр.Мова':
         event, values = window3.read()
         if event == 'ЗНО з укр.мови':
             webbrowser.open('https://zno.osvita.ua/ukrmova/')
         if event == 'Тести':
+            print("")
     if event == sg.WIN_CLOSED:
         break
 
