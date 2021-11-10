@@ -3,7 +3,8 @@ import webbrowser
 
 sg.theme('Green')
 
-# def theme(new_theme= None, window= None, system_wide= True)
+# def theme():
+#    sg.theme(DarkTeal)
 
 col = [  [sg.Button('Математика', size=(50,  8)),sg.Button('Фізика', size=(50, 8)), sg.Button('Укр.Мова', size=(50, 8))]  ]
 col_math = [  [sg.Button('ЗНО з математики', size=(20, 2))],
