@@ -3,9 +3,6 @@ import webbrowser
 
 sg.theme('Green')
 
-# def theme():
-#    sg.theme(DarkTeal)
-
 col = [  [sg.Button('Математика', size=(50,  8)),sg.Button('Фізика', size=(50, 8)), sg.Button('Укр.Мова', size=(50, 8))]  ]
 col_math = [  [sg.Button('ЗНО з математики', size=(20, 2))],
                 [sg.Button('Тести', size=(20, 2))]  ]
@@ -14,13 +11,12 @@ col_fiz = [  [sg.Button('ЗНО з фізики')],
 col_mova = [  [sg.Button('ЗНО з укр.мови')],
                 [sg.Button('Тести')]  ]
 
-
 layout = [  [sg.Column(col, justification='center')]  ]
 layout1 = [  [sg.Column(col_math, justification='center')]  ]
-layout2 = [  [sg.Column(col_fiz, justification='center')]  ]
+layout2 = [  [sg.Column(col_fiz , justification='center')]  ]
 layout3 = [  [sg.Column(col_mova, justification='center')]  ]
 
-window = sg.Window('Навчальна програма', layout, size=(1400, 600))
+window = sg.Window('KTP', layout, size=(1400, 600))
 window1 = sg.Window('Математика', layout1, size=(300, 150))
 window2 = sg.Window('Фізика', layout2, size=(300, 100))
 window3 = sg.Window('Укр.Мова', layout3, size=(300, 100))
@@ -31,7 +27,6 @@ while True:
         break
     if event == 'Математика':
         event, values = window1.read()
-#        theme()
         if event == 'ЗНО з математики':
             webbrowser.open('https://zno.osvita.ua/mathematics/')
         if event == 'Тести':
