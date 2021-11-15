@@ -102,7 +102,6 @@ while True:
         if event == 'Submit':
                 if values['-INPUT-']== True:
                         s= +1
-                        i= +1
         print(values['-INPUT-'])
                 
 window_quiz.close()
