@@ -31,7 +31,8 @@ while True:
         if event == 'ЗНО з математики':
             webbrowser.open('https://zno.osvita.ua/mathematics/')
         if event == 'Тести':
-            print("")
+            from quiz import window_math_quiz
+            window_math_quiz.read()
     if event == 'Фізика':
         event, values = window2.read()
         if event == 'ЗНО з фізики':
