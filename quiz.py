@@ -187,14 +187,19 @@ window_quiz_fiz = sg.Window('Quiz',layout_quiz_fiz, size = (1000, 950))
 from nav4 import event
 
 while True:
-        event_quiz, values = window_quiz_math
-        event_quiz, values = window_quiz_fiz
         if event == sg.WIN_CLOSED:
                 break
+        event = 'Submit'
+        if event == 'Тести з математики':
+                values = window_quiz_math.read()
+        if event == 'Тести з фізики':
+                values = window_quiz_fiz.read()
         if event == 'Submit':
+                print('')
                 answers_boolean = [0]
                 for i in range(1, 20):
                         answers_boolean.append (values['INPUT' + str(i)])
                 s = sum(answers_boolean)
                 print (s)
 window_quiz_math.close()
+window_quiz_fiz.close()
