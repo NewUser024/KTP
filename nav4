@@ -34,13 +34,13 @@ while True:
         if event == 'ЗНО з математики':
             webbrowser.open('https://zno.osvita.ua/mathematics/')
         if event == 'Тести з математики':
-                window_quiz_math.read()
+            event = window_quiz_math.read()
     if event == 'Фізика':
         event, values = window2.read()
         if event == 'ЗНО з фізики':
             webbrowser.open('https://zno.osvita.ua/physics/')
         if event == 'Тести з фізики':
-            window_quiz_fiz.read()
+            event = window_quiz_fiz.read()
     if event == 'Укр.Мова':
         event, values = window3.read()
         if event == 'ЗНО з укр.мови':
@@ -49,4 +49,6 @@ while True:
             print("")
 
 window.close()
-window_quiz_math.close()
+window1.close()
+window2.close()
+window3.close()
