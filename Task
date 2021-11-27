@@ -54,16 +54,16 @@ layout_math = [[sg.Text(data_math_tasks['questions']['question1'])],
 
 windowTasks = sg.Window('Tasks', layout_math, size = (1400, 600))
 
-s = 0
+
 
 while True:
     event_task, values_task = windowTasks.read()
     if event_task == sg.WIN_CLOSED:
         break
     if event_task == 'Submit':
-        for i in range (1, 11):
-            if values_task['answer' + str(i)] == data_math_tasks['answers']['answer' + str(i)]:
-                s = +1
-
-
+        s = 0
+        for i in data_math_tasks['answers']:
+            if values_task[i] == data_math_tasks['answers'][i]:
+                s = s + 1
+        print (s)
 windowTasks.close()
