@@ -3,7 +3,7 @@ import PySimpleGUI as sg
 
 data_math_tasks ={   
     'questions' : {
-            'question1' : 'Плавець під час першого тренування подолав дистанцію у 450 м. Кожного наступного тренування він пропливав на 50 м більше, ніж попереднього, поки не досягнув результату — 1000 м за одне тренування. Після цього під час кожного відвідування басейну плавець пропливав 1000 м. Скільки всього кілометрів плавець проплив за перші 10 тижнів тренувань, якщо він тренувався тричі кожного тижня?',
+            'question1' : "Плавець під час першого тренування подолав дистанцію у 450 м. Кожного наступного тренування він пропливав на 50 м більше, ніж попереднього, поки не досягнув результату — 1000 м за одне тренування. Після цього під час кожного відвідування басейну плавець пропливав 1000 м. Скільки всього кілометрів плавець проплив за перші 10 тижнів тренувань, якщо він тренувався тричі кожного тижня?",
             'question2' : 'Навколо конуса описано трикутну піраміду, площа основи якої дорівнює 503, а периметр основи — 50. Визначте обєм V цього конуса, якщо довжина його твірної дорівнює 4. У відповіді запишіть значення V/π',
             'question3' : 'У готелі для проживання туристів є одномісні, двомісні та тримісні номери. Їх всього 124. Якщо всі номери в готелі заповнені, то одночасно в ньому проживає 255 туристів. Скільки всього в цьому готелі тримісних номерів, якщо кількість одномісних номерів дорівнює кількості двомісних номерів?',
             'question4' : 'У чайному кіоску в наявності є лише розфасований у коробки по 100 г листовий чорний чай 8 видів, серед яких є вид «чорна перлина». Покупець вирішив придбати в цьому кіоску для подарункового набору три коробки чорного чаю трьох різних видів, серед яких обовязково повинен бути вид «чорна перлина». Скільки всього в покупця є варіантів такого придбання трьох коробок чаю для набору з наявних у кіоску?',
@@ -29,31 +29,32 @@ data_math_tasks ={
     }
 
 
-layout_math = [[sg.Text(data_math_tasks['questions']['question1'])],
+layout_math = [[sg.Text(data_math_tasks['questions']['question1'], key = 'quest')],
         [sg.Input(key = 'answer1')],
-        [sg.Text(data_math_tasks['questions']['question2'])],
-        [sg.Input(key = 'answer2')],
-        [sg.Text(data_math_tasks['questions']['question3'])],
-        [sg.Input(key = 'answer3')],
-        [sg.Text(data_math_tasks['questions']['question4'])],
-        [sg.Input(key = 'answer4')],
-        [sg.Text(data_math_tasks['questions']['question5'])],
-        [sg.Input(key = 'answer5')],
-        [sg.Text(data_math_tasks['questions']['question6'])],
-        [sg.Input(key = 'answer6')],
-        [sg.Text(data_math_tasks['questions']['question7'])],
-        [sg.Input(key = 'answer7')],
-        [sg.Text(data_math_tasks['questions']['question8'])],
-        [sg.Input(key = 'answer8')],
-        [sg.Text(data_math_tasks['questions']['question9'])],
-        [sg.Input(key = 'answer9')],
-        [sg.Text(data_math_tasks['questions']['question10'])],
-        [sg.Input(key = 'answer10')],
-        [sg.Button('Submit', size = (20, 3))]]
+#        [sg.Text(data_math_tasks["questions"]["question2"], key = "quest2", visible = False)]
+        [sg.Input(key = 'answer2', visible = False)],
+#        [sg.Text(data_math_tasks['questions']['question3'], key = 'quest3', visible = False)],
+        [sg.Input(key = 'answer3', visible = False)],
+#        [sg.Text(data_math_tasks['questions']['question4'], key = 'quest4', visible = False)],
+        [sg.Input(key = 'answer4', visible = False)],
+#        [sg.Text(data_math_tasks['questions']['question5'], key = 'quest5', visible = False)],
+        [sg.Input(key = 'answer5', visible = False)],
+#        [sg.Text(data_math_tasks['questions']['question6'], key = 'quest6', visible = False)],
+        [sg.Input(key = 'answer6', visible = False)],
+#        [sg.Text(data_math_tasks['questions']['question7'], key = 'quest7', visible = False)],
+        [sg.Input(key = 'answer7', visible = False)],
+#        [sg.Text(data_math_tasks['questions']['question8'], key = 'quest8', visible = False)],
+       [sg.Input(key = 'answer8', visible = False)],
+#        [sg.Text(data_math_tasks['questions']['question9'], key = 'quest9', visible = False)],
+        [sg.Input(key = 'answer9', visible = False)],
+#        [sg.Text(data_math_tasks['questions']['question10'], key = 'quest10', visible = False)],
+        [sg.Input(key = 'answer10', visible = False)],
+        [sg.Button('Submit', font = (20), size = (20, 3))]]
 
 
-windowTasks = sg.Window('Tasks', layout_math, size = (1400, 600))
+windowTasks = sg.Window('Tasks', layout_math, auto_size_text = True, size = (600, 400))
 
+n = 1
 
 
 while True:
@@ -62,8 +63,12 @@ while True:
         break
     if event_task == 'Submit':
         s = 0
+        j = n + 1
+        windowTasks["answer" + str(n)].Update(windowTasks["answer" + str(j)])
+        n = n + 1
+        windowTasks["quest"].Update(data_math_tasks['questions']['question' + str(n)])
         for i in data_math_tasks['answers']:
             if values_task[i] == data_math_tasks['answers'][i]:
                 s = s + 1
-        print (s)
+print (s)
 windowTasks.close()
