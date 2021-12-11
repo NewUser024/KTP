@@ -27,48 +27,30 @@ data_math_tasks ={
             'answer10' : '0.56'
         }
     }
-
-
-layout_math = [[sg.Text(data_math_tasks['questions']['question1'], key = 'quest')],
-        [sg.Input(key = 'answer1')],
-#        [sg.Text(data_math_tasks["questions"]["question2"], key = "quest2", visible = False)]
-        [sg.Input(key = 'answer2', visible = False)],
-#        [sg.Text(data_math_tasks['questions']['question3'], key = 'quest3', visible = False)],
-        [sg.Input(key = 'answer3', visible = False)],
-#        [sg.Text(data_math_tasks['questions']['question4'], key = 'quest4', visible = False)],
-        [sg.Input(key = 'answer4', visible = False)],
-#        [sg.Text(data_math_tasks['questions']['question5'], key = 'quest5', visible = False)],
-        [sg.Input(key = 'answer5', visible = False)],
-#        [sg.Text(data_math_tasks['questions']['question6'], key = 'quest6', visible = False)],
-        [sg.Input(key = 'answer6', visible = False)],
-#        [sg.Text(data_math_tasks['questions']['question7'], key = 'quest7', visible = False)],
-        [sg.Input(key = 'answer7', visible = False)],
-#        [sg.Text(data_math_tasks['questions']['question8'], key = 'quest8', visible = False)],
-       [sg.Input(key = 'answer8', visible = False)],
-#        [sg.Text(data_math_tasks['questions']['question9'], key = 'quest9', visible = False)],
-        [sg.Input(key = 'answer9', visible = False)],
-#        [sg.Text(data_math_tasks['questions']['question10'], key = 'quest10', visible = False)],
-        [sg.Input(key = 'answer10', visible = False)],
+col_math = [[sg.Text(data_math_tasks['questions']['question1'], key = 'quest')],
+        [sg.Input(key = 'answer')],
         [sg.Button('Submit', font = (20), size = (20, 3))]]
 
+layout_math = [col_math]
 
-windowTasks = sg.Window('Tasks', layout_math, auto_size_text = True, size = (600, 400))
+windowTasks = sg.Window('Tasks', layout_math, auto_size_text = True, finalize = True, size = (600, 400))
 
 n = 1
-
+s = 0
 
 while True:
     event_task, values_task = windowTasks.read()
     if event_task == sg.WIN_CLOSED:
         break
     if event_task == 'Submit':
-        s = 0
-        j = n + 1
-        windowTasks["answer" + str(n)].Update(windowTasks["answer" + str(j)])
+        values_task[n] = windowTasks["answer"].get()
+        if values_task[n] == data_math_tasks['answers']["answer" + str(n)]:
+            s = s + 1
+        windowTasks["answer"].Update("")
         n = n + 1
-        windowTasks["quest"].Update(data_math_tasks['questions']['question' + str(n)])
-        for i in data_math_tasks['answers']:
-            if values_task[i] == data_math_tasks['answers'][i]:
-                s = s + 1
-print (s)
+        if n == 11:
+            break
+        else:
+            windowTasks["quest"].Update(data_math_tasks['questions']['question' + str(n)])
+print(s)
 windowTasks.close()
