@@ -3,13 +3,13 @@ import webbrowser
 
 sg.theme('DarkTeal')
 
-col = [[sg.Button('Математика', size=(50,  8)),sg.Button('Фізика', size=(50, 8)), sg.Button('Укр.Мова', size=(50, 8))] ]
-col_math = [  [sg.Button('ЗНО з математики', size=(20, 2))],
-                [sg.Button('Тести з математики', size=(20, 2))]  ]
+col = [[sg.Button('Математика', font = (40), size=(40,  8)),sg.Button('Фізика', font = (40), size=(40, 8)), sg.Button('Укр.Мова', font = (40), size=(40, 8))] ]
+col_math = [  [sg.Button('ЗНО з математики', font = (20), size=(20, 2))],
+                [sg.Button('Задачі з математики', font = (20), size=(20, 2))]  ]
 col_fiz = [  [sg.Button('ЗНО з фізики')],
-                [sg.Button('Тести з фізики')]  ]
+                [sg.Button('Задачі з фізики')]  ]
 col_mova = [  [sg.Button('ЗНО з укр.мови')],
-                [sg.Button('Тести з мови')]  ]
+                [sg.Button('Задачі з Укр.мови')]  ]
 
 layout = [[sg.Text('WELCOME TO KNOWLEDGE TEST PROGRAM',font = ('Monospace'), justification='center', text_color=('cyan'), size=(1400, 5))],
     [sg.Column(col, justification='center')]]
@@ -22,9 +22,6 @@ window1 = sg.Window('Математика', layout1, size=(300, 150))
 window2 = sg.Window('Фізика', layout2, size=(300, 100))
 window3 = sg.Window('Укр.Мова', layout3, size=(300, 100))
 
-from quiz import window_quiz_math
-from quiz import window_quiz_fiz
-
 while True:
     event, values = window.read()
     if event == sg.WIN_CLOSED:
@@ -33,20 +30,20 @@ while True:
         event, values = window1.read()
         if event == 'ЗНО з математики':
             webbrowser.open('https://zno.osvita.ua/mathematics/')
-        if event == 'Тести з математики':
-            event = window_quiz_math.read()
-    if event == 'Фізика':
+        elif event == 'Задачі з математики':
+            from Tasks import windowTasks
+    elif event == 'Фізика':
         event, values = window2.read()
         if event == 'ЗНО з фізики':
             webbrowser.open('https://zno.osvita.ua/physics/')
-        if event == 'Тести з фізики':
-            event = window_quiz_fiz.read()
-    if event == 'Укр.Мова':
+        elif event == 'Задачі з фізики':
+            from Tasks import windowTasksFizik
+    elif event == 'Укр.Мова':
         event, values = window3.read()
         if event == 'ЗНО з укр.мови':
             webbrowser.open('https://zno.osvita.ua/ukrmova/')
-        if event == 'Тести з мови':
-            print("")
+        elif event == 'Задачі з Укр.мови':
+            from Tasks import windowTasksMova
 
 window.close()
 window1.close()
