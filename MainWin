@@ -1,7 +1,7 @@
 import PySimpleGUI as sg
 import webbrowser
 
-sg.theme('DarkTeal')
+sg.theme('DarkTeal3')
 
 col = [[sg.Button('Математика', font = (40), size=(40,  8)),sg.Button('Фізика', font = (40), size=(40, 8)), sg.Button('Укр.Мова', font = (40), size=(40, 8))] ]
 col_math = [  [sg.Button('ЗНО з математики', font = (20), size=(20, 2))],
@@ -24,8 +24,6 @@ window3 = sg.Window('Укр.Мова', layout3, size=(300, 100))
 
 while True:
     event, values = window.read()
-    if event == sg.WIN_CLOSED:
-        break
     if event == 'Математика':
         event, values = window1.read()
         if event == 'ЗНО з математики':
@@ -44,6 +42,8 @@ while True:
             webbrowser.open('https://zno.osvita.ua/ukrmova/')
         elif event == 'Задачі з Укр.мови':
             from Tasks import windowTasksMova
+    if event == sg.WIN_CLOSED:
+        break
 
 window.close()
 window1.close()
