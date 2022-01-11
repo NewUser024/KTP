@@ -100,14 +100,17 @@ while True:
             else:
                 windowTasksFizik["quest"].Update(data_fizik_tasks["questions"]["question" + str(n)])
     if event == "Задачі з Укр.мови":
-        event_task, values_task = windowTasksMova.read()
+        event, values = windowTasksMova.read()
     if event == sg.WIN_CLOSED:
         break
     if event_task == sg.WIN_CLOSED:
+        print (s)
+        layout_res = [[sg.Text("Кількість правильних відповідей: " + str(s), font = (15))]]
+        windowResult = sg.Window("Result", layout_res, size = (500, 150))
+        event_res = windowResult.read()
+        if event_res == sg.WIN_CLOSED:
+            break
         break
-
-print (s)
-
 windowTasks.close()
 windowTasksFizik.close()
 windowTasksMova.close()
