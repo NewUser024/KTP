@@ -3,13 +3,13 @@ import webbrowser
 
 sg.theme('DarkTeal3')
 
-col = [[sg.Button('Математика', font = (40), size=(40,  8)),sg.Button('Фізика', font = (40), size=(40, 8)), sg.Button('Укр.Мова', font = (40), size=(40, 8))] ]
+col = [[sg.Button('Математика', font = (40), size=(35,  8)),sg.Button('Фізика', font = (40), size=(35, 8)), sg.Button('Укр.Мова', font = (40), size=(35, 8))] ]
 col_math = [  [sg.Button('ЗНО з математики', font = (20), size=(20, 2))],
                 [sg.Button('Задачі з математики', font = (20), size=(20, 2))]  ]
-col_fiz = [  [sg.Button('ЗНО з фізики')],
-                [sg.Button('Задачі з фізики')]  ]
-col_mova = [  [sg.Button('ЗНО з укр.мови')],
-                [sg.Button('Задачі з Укр.мови')]  ]
+col_fiz = [  [sg.Button('ЗНО з фізики', font = (20), size=(20, 2))],
+                [sg.Button('Задачі з фізики', font = (20), size=(20, 2))]  ]
+col_mova = [  [sg.Button('ЗНО з укр.мови', font = (20), size=(20, 2))],
+                [sg.Button('Задачі з Укр.мови', font = (20), size=(20, 2))]  ]
 
 layout = [[sg.Text('WELCOME TO KNOWLEDGE TEST PROGRAM',font = ('Monospace'), justification='center', text_color=('cyan'), size=(1400, 5))],
     [sg.Column(col, justification='center')]]
@@ -18,9 +18,9 @@ layout2 = [  [sg.Column(col_fiz , justification='center')]  ]
 layout3 = [  [sg.Column(col_mova, justification='center')]  ]
 
 window = sg.Window('KTP', layout, element_justification = 'right', resizable = True, size=(1400, 600), finalize = True)
-window1 = sg.Window('Математика', layout1, size=(300, 150))
-window2 = sg.Window('Фізика', layout2, size=(300, 100))
-window3 = sg.Window('Укр.Мова', layout3, size=(300, 100))
+window1 = sg.Window('Математика', layout1, size=(250, 150))
+window2 = sg.Window('Фізика', layout2, size=(250, 150))
+window3 = sg.Window('Укр.Мова', layout3, size=(250, 150))
 
 while True:
     event, values = window.read()
