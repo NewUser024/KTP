@@ -83,7 +83,12 @@ while True:
             windowTasks["answer"].Update("")
             n = n + 1
             if n == 11:
-                break
+                windowTasks.close()
+                layout_res = [[sg.Text("Кількість правильних відповідей: " + str(s) + "(" + str(s) + "0%)", font = (15))]]
+                windowResult = sg.Window("Result", layout_res, size = (500, 150))
+                event_res = windowResult.read()
+                if event_res == sg.WIN_CLOSED:
+                    break
             else:
                 windowTasks["quest"].Update(data_math_tasks['questions']['question' + str(n)])
     
@@ -96,20 +101,19 @@ while True:
             windowTasksFizik["answer"].Update("")
             n = n + 1
             if n == 11:
-                break
+                windowTasksFizik.close()
+                layout_res = [[sg.Text("Кількість правильних відповідей: " + str(s) + "(" + str(s) + "0%)", font = (15))]]
+                windowResult = sg.Window("Result", layout_res, size = (500, 150))
+                event_res = windowResult.read()
+                if event_res == sg.WIN_CLOSED:
+                    break
             else:
                 windowTasksFizik["quest"].Update(data_fizik_tasks["questions"]["question" + str(n)])
     if event == "Задачі з Укр.мови":
-        event, values = windowTasksMova.read()
-    if event == sg.WIN_CLOSED:
-        break
+        event_task, values = windowTasksMova.read()
+        from nav4 import window
+        window.close()
     if event_task == sg.WIN_CLOSED:
-        print (s)
-        layout_res = [[sg.Text("Кількість правильних відповідей: " + str(s), font = (15))]]
-        windowResult = sg.Window("Result", layout_res, size = (500, 150))
-        event_res = windowResult.read()
-        if event_res == sg.WIN_CLOSED:
-            break
         break
 windowTasks.close()
 windowTasksFizik.close()
