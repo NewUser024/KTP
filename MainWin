@@ -1,14 +1,22 @@
 import PySimpleGUI as sg
 import webbrowser
+import os
 
 sg.theme('DarkTeal3')
 
+path_math = 'D:/Documents/Math_dovidnuk.pdf'
+path_physics = 'D:/Documents/Physics_dovidnuk.pdf'
+path_mova = 'D:/Documents/Ukr_mova_dovidnuk.pdf'
+
 col = [[sg.Button('Математика', font = (40), size=(35,  8)),sg.Button('Фізика', font = (40), size=(35, 8)), sg.Button('Укр.Мова', font = (40), size=(35, 8))] ]
 col_math = [  [sg.Button('ЗНО з математики', font = (20), size=(20, 2))],
+              [sg.Button("Тести з математики", font = (20), size=(20, 2)), sg.Button("Довідник з математики", font = (20), size = (20, 2))],
                 [sg.Button('Задачі з математики', font = (20), size=(20, 2))]  ]
 col_fiz = [  [sg.Button('ЗНО з фізики', font = (20), size=(20, 2))],
+              [sg.Button("Тести з фізики", font = (20), size=(20, 2)), sg.Button("Довідник з фізики", font = (20), size = (20, 2))],
                 [sg.Button('Задачі з фізики', font = (20), size=(20, 2))]  ]
 col_mova = [  [sg.Button('ЗНО з укр.мови', font = (20), size=(20, 2))],
+              [sg.Button("Тести з Укр.мови", font = (20), size=(20, 2)), sg.Button("Довідник з укр.мови", font = (20), size = (20, 2))],
                 [sg.Button('Задачі з Укр.мови', font = (20), size=(20, 2))]  ]
 
 layout = [[sg.Text('WELCOME TO KNOWLEDGE TEST PROGRAM',font = ('Monospace'), justification='center', text_color=('cyan'), size=(1400, 5))],
@@ -18,9 +26,9 @@ layout2 = [  [sg.Column(col_fiz , justification='center')]  ]
 layout3 = [  [sg.Column(col_mova, justification='center')]  ]
 
 window = sg.Window('KTP', layout, element_justification = 'right', resizable = True, size=(1400, 600), finalize = True)
-window1 = sg.Window('Математика', layout1, size=(250, 150))
-window2 = sg.Window('Фізика', layout2, size=(250, 150))
-window3 = sg.Window('Укр.Мова', layout3, size=(250, 150))
+window1 = sg.Window('Математика', layout1, size=(450, 200))
+window2 = sg.Window('Фізика', layout2, size=(450, 200))
+window3 = sg.Window('Укр.Мова', layout3, size=(450, 200))
 
 while True:
     event, values = window.read()
@@ -28,18 +36,30 @@ while True:
         event, values = window1.read()
         if event == 'ЗНО з математики':
             webbrowser.open('https://zno.osvita.ua/mathematics/')
+        elif event == "Тести з математики":
+            webbrowser.open("https://naurok.com.ua/test/matematika")
+        elif event == "Довідник з математики":
+            os.system(path_math)
         elif event == 'Задачі з математики':
             from Tasks import windowTasks
     elif event == 'Фізика':
         event, values = window2.read()
         if event == 'ЗНО з фізики':
             webbrowser.open('https://zno.osvita.ua/physics/')
+        elif event == "Тести з фізики":
+            webbrowser.open("https://naurok.com.ua/test/fizika")
+        elif event == "Довідник з фізики":
+            os.system(path_physics)
         elif event == 'Задачі з фізики':
             from Tasks import windowTasksFizik
     elif event == 'Укр.Мова':
         event, values = window3.read()
         if event == 'ЗНО з укр.мови':
             webbrowser.open('https://zno.osvita.ua/ukrmova/')
+        elif event == "Тести з Укр.мови":
+            webbrowser.open("https://naurok.com.ua/test/ukrainska-mova")
+        elif event == "Довідник з укр.мови":
+            os.system(path_mova)
         elif event == 'Задачі з Укр.мови':
             from Tasks import windowTasksMova
     if event == sg.WIN_CLOSED:
