@@ -1,17 +1,4 @@
-import PySimpleGUI as sg
-import webbrowser
-import os
-
-sg.theme('DarkTeal3')
-
-path_math = 'D:/Documents/Math_dovidnuk.pdf'
-path_physics = 'D:/Documents/Physics_dovidnuk.pdf'
-path_mova = 'D:/Documents/Ukr_mova_dovidnuk.pdf'
-
-col = [[sg.Button('Математика', font = (40), size=(35,  8)),sg.Button('Фізика', font = (40), size=(35, 8)), sg.Button('Укр.Мова', font = (40), size=(35, 8))] ]
-col_math = [  [sg.Button('ЗНО з математики', font = (20), size=(20, 2))],
-              [sg.Button("Тести з математики", font = (20), size=(20, 2)), sg.Button("Довідник з математики", font = (20), size = (20, 2))],
-                [sg.Button('Задачі з математики', font = (20), size=(20, 2))]  ]
+('Задачі з математики', font = (20), size=(20, 2))]  ]
 col_fiz = [  [sg.Button('ЗНО з фізики', font = (20), size=(20, 2))],
               [sg.Button("Тести з фізики", font = (20), size=(20, 2)), sg.Button("Довідник з фізики", font = (20), size = (20, 2))],
                 [sg.Button('Задачі з фізики', font = (20), size=(20, 2))]  ]
